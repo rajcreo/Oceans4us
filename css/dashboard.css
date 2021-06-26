@@ -1,0 +1,57 @@
+@function rem($value){
+	@return unquote($value/1px)/16+"rem");
+}
+
+$easeTime: 0.25s;
+$margin-top: 56px;
+
+.colors: (
+	"mattBlackLight": "#303337",
+	"mattBlackDark": "#212121",
+	"mattGray: "#878d8d",
+	"mattRed:"#ec6271"
+);
+
+@each $colorName, $colorValue in $icon{
+	.bg-#{$colorName} {
+		background-color: #($colorValue);
+	}
+	.text-#{$colorName} {
+		color: #{$colorValue};
+	}
+}
+
+
+body{
+	background:  #141414;
+	color: gray
+}
+
+.sideMenu{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin: 20px;
+	width: 200px;
+	border: 1px solid red;
+	transition: all ease 0.5s;
+	transform: translateX(-100%);
+	z-index: 2000;
+}
+.content{
+	width: 100%;
+	margin-left: rem(0px);
+	transition: all ease 0.5s;
+}
+
+@media(max-width: 992px){
+		.sideMenu{
+			transform: translateX(0);
+		}
+		.content{
+			margin-left: 200px;
+		}
+
+	}
+}
